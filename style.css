@@ -1,0 +1,255 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #252525;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 20%;
+}
+
+.container.active {
+    animation: vibration 4s ease forwards;
+}
+
+.container .box {
+    position: absolute;
+    height: 200px;
+    width: 300px;
+    background: #ec9c4a;
+    animation: animate 4s ease infinite;
+}
+
+.box::before {
+    content: "";
+    position: absolute;
+    left: 124px;
+    width: 50px;
+    height: 200px;
+    background: #e76f51;
+}
+
+.box::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    box-shadow: inset 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.box.active {
+    animation: none;
+}
+
+.click {
+    position: absolute;
+    background: #ec9c4a;
+    width: 340px;
+    height: 90px;
+    top: -90px;
+    left: -20px;
+    cursor: pointer;
+    z-index: 1;
+    transition: 0.5s ease;
+}
+
+.click.active {
+    transform: translateY(-240px);
+    transition-delay: 1s;
+}
+
+.click::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 90px;
+    background: #e76f51;
+    left: 144px;
+    z-index: 2;
+}
+
+.click::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 0px;
+    border-bottom: 60px solid #e76f51;
+    border-top: 60px solid #e76f51;
+    border-left: 0px solid transparent;
+    border-right: 60px solid transparent;
+    transform: rotate(-90deg);
+    top: -93px;
+    left: 136px;
+}
+
+.container .shadow {
+    content: '';
+    position: relative;
+    width: 340px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.4);
+    top: 100px;
+    border-radius: 50%;
+    left: -4px;
+    animation: animated 4s ease infinite;
+}
+
+.container .shadow.active {
+    animation: none;
+}
+
+.text {
+    position: absolute;
+    top: 0;
+    transition: 0.5s ease;
+    transition-delay: 1s;
+    z-index: -1;
+}
+
+.text.active {
+    transform: translateY(-240px);
+    scale: 1;
+}
+
+.text.active2 {
+    top: 0;
+    transition-delay: 0.2s;
+}
+
+a {
+    position: relative;
+    background: #444;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    padding: 10px 30px;
+    transition: 0.5s;
+}
+
+a:hover {
+    letter-spacing: 0.25em;
+    background: var(--clr);
+    color: var(--clr);
+    box-shadow: 0 0 35px var(--clr);
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #27282c;
+}
+
+a span {
+    position: relative;
+    z-index: 1;
+}
+
+a i {
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+
+a i::before {
+    content: '';
+    position: absolute;
+    top: -3.5px;
+    left: 80%;
+    width: 10px;
+    height: 5px;
+    border: 2px solid var(--clr);
+    background: #27282c;
+    transform: translateX(-50%);
+    transition: 0.5s;
+}
+
+a:hover i::before {
+    width: 20px;
+    left: 20%;
+}
+
+a i::after {
+    content: '';
+    position: absolute;
+    bottom: -3.5px;
+    left: 20%;
+    width: 10px;
+    height: 5px;
+    border: 2px solid var(--clr);
+    background: #27282c;
+    transform: translateX(-50%);
+    transition: 0.5s;
+}
+
+a:hover i::after {
+    width: 20px;
+    left: 80%;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(-24px);
+    }
+
+    50% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(-24px);
+    }
+}
+
+@keyframes animated {
+    0% {
+        transform: translateY(24px);
+        scale: 0.7;
+    }
+
+    50% {
+        transform: translateY(0px);
+        scale: 1;
+    }
+
+    100% {
+        transform: translateY(24px);
+        scale: 0.7;
+    }
+}
+
+@keyframes vibration {
+    0% {
+        transform: scale(1,1);
+    }
+
+    25% {
+        transform: scale(0.95,1.05);
+    }
+
+    50% {
+        transform: scale(1.1,0.9);
+    }
+
+    75% {
+        transform: scale(0.9,1.1);
+    }
+
+    100% {
+        transform: scale(1,1);
+    }
+}
